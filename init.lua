@@ -254,8 +254,8 @@ require('telescope').setup {
   defaults = {
     mappings = {
       i = {
-        ['<C-u>'] = true,
-        ['<C-d>'] = true,
+        ['<C-u>'] = false,
+        ['<C-d>'] = false,
       },
     },
   },
@@ -562,5 +562,11 @@ require 'nvim-web-devicons'.setup {
     }
   },
 }
+vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "NormalFloat" })
+vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "NvimTreeNormal" })
+vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "NormalBuffer" })
 
+vim.cmd.set("relativenumber")
+-- vimscript: let g:transparent_groups = extend(get(g:, 'transparent_groups', []), ["ExtraGroup"])
 require('nvim-autopairs').setup {}
+require('nvim-ts-autotag').setup {}

@@ -7,4 +7,7 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	"windwp/nvim-autopairs",
 	"simrat39/rust-tools.nvim",
+	"davidgranstrom/nvim-markdown-preview",
+	"windwp/nvim-ts-autotag",
+	"xiyaowong/transparent.nvim",
 }
