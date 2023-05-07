@@ -226,6 +226,8 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+vim.cmd.set('splitbelow')
+vim.cmd.set('splitright')
 
 -- [[ Basic Keymaps ]]
 
@@ -281,6 +283,26 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>ht',
+  function()
+    vim.cmd('10sp')
+    vim.cmd.terminal('nu')
+    vim.cmd.set("relativenumber!")
+    vim.cmd.set("number!")
+    vim.cmd.startinsert()
+  end,
+  { desc = "[H]orizontal [T]erminal" }
+)
+vim.keymap.set('n', '<leader>vt',
+  function()
+    vim.cmd('50vsp')
+    vim.cmd.terminal('nu')
+    vim.cmd.set("relativenumber!")
+    vim.cmd.set("number!")
+    vim.cmd.startinsert()
+  end,
+  { desc = "[V]ertical [T]erminal" }
+)
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -399,6 +421,7 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
@@ -436,8 +459,6 @@ local servers = {
     },
   },
 }
-require('rust-tools').setup()
-require('rust-tools').inlay_hints.enable()
 
 
 -- Setup neovim lua configuration
@@ -520,53 +541,7 @@ vim.diagnostic.config({
 require("lsp_lines").setup()
 -- vim: ts=2 sts=2 sw=2 et
 --
-require 'nvim-web-devicons'.setup {
-  -- your personnal icons can go here (to override)
-  -- you can specify color or cterm_color instead of specifying both of them
-  -- DevIcon will be appended to `name`
-  override = {
-    zsh = {
-      icon = "",
-      color = "#428850",
-      cterm_color = "65",
-      name = "Zsh"
-    }
-  },
-  -- globally enable different highlight colors per icon (default to true)
-  -- if set to false all icons will have the default icon's color
-  color_icons = true,
-  -- globally enable default icons (default to false)
-  -- will get overriden by `get_icons` option
-  default = true,
-  -- globally enable "strict" selection of icons - icon will be looked up in
-  -- different tables, first by filename, and if not found by extension; this
-  -- prevents cases when file doesn't have any extension but still gets some icon
-  -- because its name happened to match some extension (default to false)
-  strict = true,
-  -- same as `override` but specifically for overrides by filename
-  -- takes effect when `strict` is true
-  override_by_filename = {
-    [".gitignore"] = {
-      icon = "",
-      color = "#f1502f",
-      name = "Gitignore"
-    }
-  },
-  -- same as `override` but specifically for overrides by extension
-  -- takes effect when `strict` is true
-  override_by_extension = {
-    ["log"] = {
-      icon = '',
-      color = "#81e043",
-      name = "Log"
-    }
-  },
-}
-vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "NormalFloat" })
-vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "NvimTreeNormal" })
-vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "NormalBuffer" })
+
 
 vim.cmd.set("relativenumber")
 -- vimscript: let g:transparent_groups = extend(get(g:, 'transparent_groups', []), ["ExtraGroup"])
-require('nvim-autopairs').setup {}
-require('nvim-ts-autotag').setup {}
