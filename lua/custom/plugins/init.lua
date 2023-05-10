@@ -42,6 +42,5 @@ return {
 	},
 	{ "davidgranstrom/nvim-markdown-preview" },
 	{ "windwp/nvim-ts-autotag",              opts = {} },
-	{ "xiyaowong/transparent.nvim" },
 
 }
