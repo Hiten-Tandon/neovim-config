@@ -1,6 +1,6 @@
 return {
-	'navarasu/onedark.nvim',
+	{ 'navarasu/onedark.nvim', opts = { transparent = true } },
 	{ 'folke/tokyonight.nvim', opts = { transparent = true } },
-	'Mofiqul/dracula.nvim',
+	{ 'Mofiqul/dracula.nvim',  opts = { transparent = true } },
 
 }
