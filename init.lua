@@ -134,6 +134,8 @@ require('lazy').setup({
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     opts = {
+      show_current_context = true,
+      show_current_context_start = true,
       char = '┊',
       show_trailing_blankline_indent = false,
     },
@@ -185,7 +187,7 @@ require('lazy').setup({
 
 }, {})
 
-vim.cmd [[colorscheme tokyonight-night]]
+vim.cmd('colorscheme carbonfox')
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
