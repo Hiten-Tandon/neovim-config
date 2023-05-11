@@ -8,8 +8,8 @@ return {
       options = {
         transparent = false,
         styles = {
-          types = "italic,bold",
-          keywords = "italic,bold",
+          types = "italic",
+          keywords = "italic",
           comments = "italic"
         }
       }

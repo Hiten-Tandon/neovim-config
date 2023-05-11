@@ -186,8 +186,8 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-vim.cmd.set('splitbelow')
-vim.cmd.set('splitright')
+vim.cmd [[set splitbelow]]
+vim.cmd [[set splitright]]
 
 -- [[ Basic Keymaps ]]
 
@@ -252,7 +252,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'markdown', 'zig' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = true,
+  auto_install = false,
 
   highlight = { enable = true },
   indent = { enable = true }, --, disable = { 'python' } },
