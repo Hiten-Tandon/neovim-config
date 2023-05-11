@@ -146,7 +146,7 @@ require('lazy').setup({
   { import = 'custom.themes' },
 }, {})
 
-require("custom.init")
+require("custom.init") --  lua/custom/init/init.lau is called here
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
