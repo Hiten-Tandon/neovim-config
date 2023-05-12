@@ -9,14 +9,10 @@ Once done, run the following command in the folder:
 git clone https://github.com/Hiten-Tandon/neovim-config .
 git remote rm upstream
 ```
-After this, if this is your first neovim config, you probably want to install nerdfonts, I use the VictorMono nerd font, so I'm adding a way to install that, if you want any other nerdfonts, you can install them from your package manager of choice.
+After this, if this is your first neovim config, you probably want to install nerdfonts, I use the [Victor Mono nerd font](https://rubjo.github.io/victor-mono/), so I'm adding a way to install that, if you want any other nerdfonts, you can install them from your package manager of choice.
 
-Windows:
-`choco install nerd-font-victormono`
-Linux:
-`sudo apt install nerd-font-victormono`
-MacOS:
-`brew install --cask font-victor-mono`
+- Windows: `choco install nerd-font-victormono`
+- MacOS: `brew install --cask font-victor-mono`
 
 Then start neovim, and you should be good to go.
 
