@@ -23,8 +23,6 @@ vim.keymap.set('n', '<leader>ht',                                               
   end,
   { desc = "[H]orizontal [T]erminal" }
 )
-
-
 vim.keymap.set('n', '<leader>vt',    -- <space>vt opens a vertical terminal, this command makes that possible
   function()
     vim.cmd [[60vsp]]                -- split at right for 60 columns
@@ -38,6 +36,5 @@ vim.keymap.set('n', '<leader>vt',    -- <space>vt opens a vertical terminal, thi
   end,
   { desc = "[V]ertical [T]erminal" }
 )
-
 
 -- vim: ts=2 sts=2 sw=2 et
