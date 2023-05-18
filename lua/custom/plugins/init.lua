@@ -1,5 +1,4 @@
 return {
-  { "ErichDonGubler/lsp_lines.nvim", opts = {} },
   {
     "nvim-tree/nvim-web-devicons",
     opts = {
@@ -31,18 +30,41 @@ return {
     }
 
   },
-  { "windwp/nvim-autopairs",         opts = {} },
+  { "windwp/nvim-autopairs",                   opts = {} },
   {
     "simrat39/rust-tools.nvim",
     config = function()
       local rust_tools = require('rust-tools')
       rust_tools.setup {}
       rust_tools.inlay_hints.enable()
-    end
+    end,
+    lazy = false
   },
   { "davidgranstrom/nvim-markdown-preview" },
   { "windwp/nvim-ts-autotag",                  opts = {} },
   { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
+  {
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    opts = {
+      shortcut_type = 'number',
+    },
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+  },
+  { 'MunifTanjim/nui.nvim', },
+  { 'rcarriga/nvim-notify', opts = {} },
+  {
+    'folke/noice.nvim',
+    opts = {},
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  }
 }
 
 -- vim: ts=2 sts=2 sw=2 et
