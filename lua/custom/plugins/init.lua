@@ -64,7 +64,8 @@ return {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
-  }
+  },
+  { 'folke/trouble.nvim', opts = { use_diagnostic_signs = true } }
 }
 
 -- vim: ts=2 sts=2 sw=2 et

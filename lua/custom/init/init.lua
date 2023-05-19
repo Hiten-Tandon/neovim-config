@@ -4,7 +4,7 @@ vim.cmd [[colorscheme carbonfox]] -- the statement is repeated second time,
 --                                              you don't need this for any other theme
 vim.cmd [[set number]]                                                           -- enables numbering
 vim.cmd [[set relativenumber]]                                                   -- enables numbering relative to the lines
-vim.diagnostic.config { virtual_text = false }                                   -- comment this line if you plan to disable lsp-lines
+--vim.diagnostic.config { virtual_text = false }                                   -- comment this line if you plan to disable lsp-lines
 local terminal = 'nu'                                                            -- name of the terminal
 
 vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = '[T]ab [N]ew' })       -- open a new tab
