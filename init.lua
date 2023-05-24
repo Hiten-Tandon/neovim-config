@@ -148,8 +148,6 @@ require 'custom.init' --  lua/custom/init/init.lau is called here
 -- Set highlight on search
 vim.o.hlsearch = false
 
--- Make line numbers default
-
 -- Enable mouse mode
 vim.o.mouse = 'a'
 

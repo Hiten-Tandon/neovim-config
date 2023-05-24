@@ -49,9 +49,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
+    for name in inlayhint_exempt do
+      if client.name == name then
+        return
+      end
+    end
 
-
-    if client.name ~= 'rust_analyzer' then require("lsp-inlayhints").on_attach(client, bufnr, false) end
+    require("lsp-inlayhints").on_attach(client, bufnr, false)
   end,
 })
 
