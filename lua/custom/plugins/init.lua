@@ -37,35 +37,40 @@ return {
       local rust_tools = require('rust-tools')
       rust_tools.setup {}
       rust_tools.inlay_hints.enable()
-    end,
-    lazy = false
+    end
   },
   { "davidgranstrom/nvim-markdown-preview" },
-  { "windwp/nvim-ts-autotag",                  opts = {} },
+  { "windwp/nvim-ts-autotag",                  lazy = true, opts = {} },
   { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
-  {
-    'glepnir/dashboard-nvim',
-    event = 'VimEnter',
-    opts = {
-      shortcut_type = 'number',
-    },
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-  },
   { 'MunifTanjim/nui.nvim', },
-  { 'rcarriga/nvim-notify', opts = {} },
+  { 'rcarriga/nvim-notify',                    opts = {} },
   {
     'folke/noice.nvim',
-    opts = {},
-    requires = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    opts = {
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
+        },
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = true,         -- use a classic bottom cmdline for search
+        command_palette = true,       -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false,       -- add a border to hover docs and signature help
+      },
+    },
+    dependencies = {
       "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
   },
-  { 'folke/trouble.nvim', opts = { use_diagnostic_signs = true } }
+  { 'folke/trouble.nvim',           opts = { use_diagnostic_signs = true } },
+  { 'lvimuser/lsp-inlayhints.nvim', opts = {} },
 }
 
 -- vim: ts=2 sts=2 sw=2 et

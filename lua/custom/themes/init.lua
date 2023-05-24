@@ -1,21 +1,39 @@
+local transparent = false;
+
 return {
-  { 'navarasu/onedark.nvim', opts = { transparent = true } },
-  { 'folke/tokyonight.nvim', opts = { transparent = true } },
-  { 'Mofiqul/dracula.nvim',  opts = { transparent = true } },
+  { 'navarasu/onedark.nvim', opts = { transparent = transparent }, },
+  { 'folke/tokyonight.nvim', opts = { transparent = transparent }, },
+  { 'Mofiqul/dracula.nvim',  opts = { transparent = transparent }, },
   {
     'EdenEast/nightfox.nvim',
     opts = {
       options = {
-        transparent = false,
+        transparent = transparent,
         styles = {
           types = "italic",
           keywords = "italic",
           comments = "italic"
         }
       }
-    }
+    },
   },
+  { 'Mofiqul/adwaita.nvim', },
+  {
+    'catppuccin/nvim',
+    config = function()
+      require('catppuccin').setup {
+        transparent_background = transparent
+      }
+    end
+  },
+  { 'rebelot/kanagawa.nvim',        opts = { transparent = transparent, compile = true } },
+  { 'morhetz/gruvbox' },
+  { 'sainnhe/everforest' },
+  { 'rose-pine/neovim',             name = 'rose-pine' },
+  { 'Mofiqul/vscode.nvim',          opts = { transparent = transparent } },
+  { 'rafi/awesome-vim-colorschemes' }
 }
+
 
 
 -- vim: ts=2 sts=2 sw=2 et
