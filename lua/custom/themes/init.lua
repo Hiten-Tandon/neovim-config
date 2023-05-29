@@ -31,7 +31,16 @@ return {
   { 'sainnhe/everforest' },
   { 'rose-pine/neovim',             name = 'rose-pine' },
   { 'Mofiqul/vscode.nvim',          opts = { transparent = transparent } },
-  { 'rafi/awesome-vim-colorschemes' }
+  { 'rafi/awesome-vim-colorschemes' },
+  {
+    "hardhackerlabs/theme-vim",
+    name = "hardhacker",
+    init = function()
+      vim.g.hardhacker_darker = 1
+      vim.g.hardhacker_hide_tilde = 1
+      vim.g.hardhacker_keyword_italic = 1
+    end,
+  }
 }
 
 

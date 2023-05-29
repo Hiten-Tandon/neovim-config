@@ -71,6 +71,18 @@ return {
   },
   { 'folke/trouble.nvim',           opts = { use_diagnostic_signs = true } },
   { 'lvimuser/lsp-inlayhints.nvim', opts = {} },
+  { 'mg979/vim-visual-multi', },
+  {
+    'jmbuhr/otter.nvim',
+    dependencies = {
+      'hrsh7th/nvim-cmp',
+      'neovim/nvim-lspconfig',
+      'nvim-treesitter/nvim-treesitter'
+    },
+    config = function()
+      require 'otter'.dev_setup {}
+    end
+  }
 }
 
 -- vim: ts=2 sts=2 sw=2 et

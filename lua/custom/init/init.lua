@@ -1,9 +1,8 @@
-vim.cmd [[colorscheme carbonfox]] -- theme you wanna use
---                                              because it fixes a bug,
---                                              you don't need this for any other theme
+vim.cmd [[colorscheme ayu]] -- theme you wanna use
+--                                    because it fixes a bug,
+--                                    you don't need this for any other theme
 vim.cmd [[set number]]                                                           -- enables numbering
 vim.cmd [[set relativenumber]]                                                   -- enables numbering relative to the lines
---vim.diagnostic.config { virtual_text = false }                                   -- comment this line if you plan to disable lsp-lines
 local terminal = 'nu'                                                            -- name of the terminal
 
 vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = '[T]ab [N]ew' })       -- open a new tab
@@ -27,10 +26,10 @@ vim.keymap.set('n', '<leader>vt',    -- <space>vt opens a vertical terminal, thi
     vim.cmd [[60vsp]]                -- split at right for 60 columns
     vim.cmd('terminal ' .. terminal) -- open the terminal
     vim.cmd [[
-		setlocal nonumber
-		setlocal norelativenumber
-		startinsert
-		nnoremap <buffer> <leader>vt :q<CR>
+		  setlocal nonumber
+		  setlocal norelativenumber
+		  startinsert
+		  nnoremap <buffer> <leader>vt :q<CR>
 		]]
   end,
   { desc = "[V]ertical [T]erminal" }
@@ -49,7 +48,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-    for name in inlayhint_exempt do
+    for _, name in ipairs(inlayhint_exempt) do
       if client.name == name then
         return
       end
