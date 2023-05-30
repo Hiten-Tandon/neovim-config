@@ -82,7 +82,8 @@ return {
     config = function()
       require 'otter'.dev_setup {}
     end
-  }
+  },
+  { "equalsraf/neovim-gui-shim" }
 }
 
 -- vim: ts=2 sts=2 sw=2 et
