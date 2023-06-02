@@ -5,7 +5,7 @@
     - Windows: `%userprofile%\AppData\Local\nvim`
 Once done, run the following command in the folder:
 
-```
+```bash
 git clone https://github.com/Hiten-Tandon/neovim-config .
 git remote rm upstream
 ```

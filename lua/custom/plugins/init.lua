@@ -1,46 +1,36 @@
 return {
   {
-    "nvim-tree/nvim-web-devicons",
+    'nvim-tree/nvim-web-devicons',
     opts = {
       override = {
         zsh = {
-          icon = "",
-          color = "#428850",
-          cterm_color = "65",
-          name = "Zsh"
+          icon = '',
+          color = '#428850',
+          cterm_color = '65',
+          name = 'Zsh'
         }
       },
       color_icons = true,
       default = true,
       strict = true,
       override_by_filename = {
-        [".gitignore"] = {
-          icon = "",
-          color = "#f1502f",
-          name = "Gitignore"
+        ['.gitignore'] = {
+          icon = '',
+          color = '#f1502f',
+          name = 'Gitignore'
         }
       },
       override_by_extension = {
-        ["log"] = {
+        ['log'] = {
           icon = '',
-          color = "#81e043",
-          name = "Log"
+          color = '#81e043',
+          name = 'Log'
         }
       },
     }
-
   },
-  { "windwp/nvim-autopairs",                   opts = {} },
-  {
-    "simrat39/rust-tools.nvim",
-    config = function()
-      local rust_tools = require('rust-tools')
-      rust_tools.setup {}
-      rust_tools.inlay_hints.enable()
-    end
-  },
-  { "davidgranstrom/nvim-markdown-preview" },
-  { "windwp/nvim-ts-autotag",                  lazy = true, opts = {} },
+  { 'windwp/nvim-autopairs',                   opts = {} },
+  { 'windwp/nvim-ts-autotag',                  lazy = true, opts = {} },
   { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
   { 'MunifTanjim/nui.nvim', },
   { 'rcarriga/nvim-notify',                    opts = {} },
@@ -50,9 +40,9 @@ return {
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
+          ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+          ['vim.lsp.util.stylize_markdown'] = true,
+          ['cmp.entry.get_documentation'] = true,
         },
       },
       -- you can enable a preset for easier configuration
@@ -65,8 +55,8 @@ return {
       },
     },
     dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
     }
   },
   { 'folke/trouble.nvim',           opts = { use_diagnostic_signs = true } },
@@ -83,7 +73,7 @@ return {
       require 'otter'.dev_setup {}
     end
   },
-  { "equalsraf/neovim-gui-shim" }
+  { 'equalsraf/neovim-gui-shim' },
 }
 
 -- vim: ts=2 sts=2 sw=2 et

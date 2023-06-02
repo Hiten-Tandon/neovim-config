@@ -3,7 +3,6 @@
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 -- lazy package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -30,6 +29,16 @@ require('lazy').setup({
       { 'williamboman/mason.nvim',          config = true },
       { 'williamboman/mason-lspconfig.nvim' },
       { 'folke/neodev.nvim' },
+      {
+        'simrat39/rust-tools.nvim',
+        config = function()
+          local rt = require 'rust-tools'
+          rt.setup {}
+          rt.inlay_hints.enable()
+        end,
+        lazy = true
+      },
+      { 'davidgranstrom/nvim-markdown-preview', lazy = true },
     },
   },
 
@@ -89,11 +98,10 @@ require('lazy').setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    build = ":TSUpdate",
+    build = ':TSUpdate',
   },
 
   --plugins stolen from kickstart.nvim
-  require 'kickstart.plugins.debug',
   require 'kickstart.plugins.autoformat',
 
   --custom themes and plugins
@@ -103,7 +111,6 @@ require('lazy').setup({
 
 require 'custom.init' --  lua/custom/init/init.lua is called here
 vim.o.hlsearch = false
-
 vim.o.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
@@ -265,10 +272,10 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -316,21 +323,17 @@ local servers = {
     -- Rust
     imports = {
       granularity = {
-        group = "module",
+        group = 'module',
       },
-      prefix = "self",
-    },
-    cargo = {
-      buildScripts = {
-        enable = true,
-      },
+      prefix = 'self',
     },
     procMacro = {
       enable = true
     },
     checkOnSave = {
-      command = "clippy"
-    }
+      command = 'clippy'
+    },
+    dependencies = { 'simrat39\rust-tools.nvim' }
   },
   tsserver = {}, --TS, JS, HTML, ...
 
@@ -342,7 +345,8 @@ local servers = {
     },
   },
 
-  zls = {}, --zig
+  zls = {},                                                                              --zig
+  marksman = { dependencies = { 'davidgranstrom/nvim-markdown-preview', lazy = true }, } --markdown
 }
 -- Setup neovim lua configuration
 require('neodev').setup {}
