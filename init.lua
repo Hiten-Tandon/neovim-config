@@ -209,7 +209,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'markdown', 'zig' },
+  ensure_installed = require 'custom.treesitters',
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = true,
@@ -315,39 +315,7 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
-local servers = {
-  clangd = {},   -- C, C++
-  gopls = {},    -- Go
-  ruff_lsp = {}, -- Python
-  rust_analyzer = {
-    -- Rust
-    imports = {
-      granularity = {
-        group = 'module',
-      },
-      prefix = 'self',
-    },
-    procMacro = {
-      enable = true
-    },
-    checkOnSave = {
-      command = 'clippy'
-    },
-    dependencies = { 'simrat39\rust-tools.nvim' }
-  },
-  tsserver = {}, --TS, JS, HTML, ...
-
-  lua_ls = {
-    -- lua
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
-
-  zls = {},                                                                              --zig
-  marksman = { dependencies = { 'davidgranstrom/nvim-markdown-preview', lazy = true }, } --markdown
-}
+local servers = require 'custom.lsps'
 -- Setup neovim lua configuration
 require('neodev').setup {}
 

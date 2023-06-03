@@ -34,6 +34,8 @@ vim.keymap.set('n', '<leader>vt',    -- <space>vt opens a vertical terminal, thi
   end,
   { desc = "[V]ertical [T]erminal" }
 )
+vim.keymap.set('i', '<C-Del>', '<Esc>lcw', { desc = "Delete word" })
+vim.keymap.set('n', '<C-Del>', '<Esc>dw', { desc = "Delete word" })
 
 local inlayhint_exempt = { 'rust_analyzer' }; -- Names of LSPs which should be exempted from inlayhints from this plugin
 
