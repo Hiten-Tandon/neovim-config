@@ -17,4 +17,4 @@ After this, if this is your first neovim config, you probably want to install ne
 Then start neovim, and you should be good to go.
 
 ## Note for Windows users:
-You need the [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal) available on msstore to access all the features available in the config
+You need the [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701) available on msstore to access all the features available in the config
