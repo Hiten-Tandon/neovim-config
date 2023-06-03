@@ -29,8 +29,14 @@ return {
     },
   },
 
-  zls = {},                                                                              --zig
-  marksman = { dependencies = { 'davidgranstrom/nvim-markdown-preview', lazy = true }, } --markdown
+  zls = {}, --zig
+  marksman = {
+    --markdown
+    dependencies = {
+      'davidgranstrom/nvim-markdown-preview',
+      lazy = true
+    },
+  }
 }
 
 -- vim: ts=2 sts=2 sw=2 et
