@@ -2,7 +2,7 @@
 1. Install [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-download)
 2. Add nvim folder to the following places according to your OS:
     - Linux/Mac OS: `~/.config/nvim`
-    - Windows: `%userprofile%\AppData\Local\nvim`
+    - Windows: `~\AppData\Local\nvim`
 Once done, run the following command in the folder:
 
 ```bash
