@@ -287,4 +287,12 @@ return {
     end,
     ft = { "markdown" },
   },
+  {
+    "MeanderingProgrammer/markdown.nvim",
+    name = "render-markdown",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "Konfekt/vim-latexencode" },
+    config = function()
+      require("render-markdown").setup({})
+    end,
+  },
 }
