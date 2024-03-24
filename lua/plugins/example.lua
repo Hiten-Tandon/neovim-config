@@ -295,4 +295,11 @@ return {
       require("render-markdown").setup({})
     end,
   },
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+  { "navarasu/onedark.nvim", priority = 1000, opts = { style = "warmer" } },
+  { "EdenEast/nightfox.nvim" },
+  { "projekt0n/github-nvim-theme" },
+  { "sainnhe/sonokai" },
+  { "mofiqul/dracula.nvim" },
+  { "LazyVim/LazyVim", opts = { colorscheme = "github_dark_default" } },
 }
