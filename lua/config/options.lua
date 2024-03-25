@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.g.R_external_term = 1
+vim.o.scrolloff = 999

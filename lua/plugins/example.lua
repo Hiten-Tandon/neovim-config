@@ -298,4 +298,6 @@ return {
   { "sainnhe/sonokai" },
   { "mofiqul/dracula.nvim" },
   { "LazyVim/LazyVim", opts = { colorscheme = "github_dark_default" } },
+  { "gleam-lang/gleam.vim" },
+  { "Jezda1337/nvim-html-css" },
 }
