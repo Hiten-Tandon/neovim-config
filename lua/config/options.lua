@@ -3,4 +3,5 @@
 -- Add any additional options here
 
 vim.g.R_external_term = 1
+vim.g.lazyvim_python_lsp = "basedpyright"
 vim.o.scrolloff = 999

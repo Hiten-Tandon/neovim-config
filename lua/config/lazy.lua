@@ -51,7 +51,7 @@ require("lazy").setup({
           "zls",
           "ruff",
           "ruff-lsp",
-          "pyright",
+          "basedpyright",
           "jdtls",
           "nil",
         },

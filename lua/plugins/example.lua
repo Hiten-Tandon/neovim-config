@@ -1,11 +1,3 @@
--- since this is just an example spec, don't actually load anything here and return an empty spec
-
--- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
---
--- In your plugin files, you can:
--- * add extra plugins
--- * disable/enabled LazyVim plugins
--- * override the configuration of LazyVim plugins
 return {
   { "folke/trouble.nvim" },
   { "jalvesaq/Nvim-R" },
@@ -300,4 +292,29 @@ return {
   { "LazyVim/LazyVim", opts = { colorscheme = "github_dark_default" } },
   { "gleam-lang/gleam.vim" },
   { "Jezda1337/nvim-html-css" },
+  { "LhKipp/nvim-nu" },
+  {
+    "arminveres/md-pdf.nvim",
+    branch = "main", -- you can assume that main is somewhat stable until releases will be made
+    lazy = true,
+    keys = {
+      {
+        "<leader>m",
+        function()
+          require("md-pdf").convert_md_to_pdf()
+        end,
+        desc = "Markdown preview",
+      },
+    },
+    opts = {
+      toc = false,
+      preview_cmd = function()
+        return "brave"
+      end,
+    },
+  },
+  {
+    "realprogrammersusevim/md-to-html.nvim",
+    cmd = { "MarkdownToHTML", "NewMarkdownToHTML" },
+  },
 }

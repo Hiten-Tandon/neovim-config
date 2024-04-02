@@ -5,7 +5,7 @@
 vim.keymap.set("n", "<leader>ht", function()
   vim.cmd([[
   10sp]])
-  vim.cmd.terminal()
+  vim.cmd.terminal("nu")
   vim.cmd([[
   setlocal nonumber norelativenumber
   startinsert
@@ -16,7 +16,7 @@ end, { desc = "[H]orizontal [T]erminal" })
 vim.keymap.set("n", "<leader>vt", function()
   vim.cmd([[
   60vsp]])
-  vim.cmd.terminal()
+  vim.cmd.terminal("nu")
   vim.cmd([[
   setlocal nonumber norelativenumber
   startinsert
