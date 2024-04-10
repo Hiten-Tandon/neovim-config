@@ -306,7 +306,6 @@ return {
       },
     },
   },
-  { "gleam-lang/gleam.vim" },
   { "Jezda1337/nvim-html-css" },
   { "LhKipp/nvim-nu" },
   {
