@@ -284,12 +284,28 @@ return {
     end,
   },
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+  { "olimorris/onedarkpro.nvim", priority = 1000, name = "onedarkpro" },
   { "navarasu/onedark.nvim", priority = 1000, opts = { style = "warmer" } },
+  { "eldritch-theme/eldritch.nvim", priority = 1000, opts = {} },
   { "EdenEast/nightfox.nvim" },
   { "projekt0n/github-nvim-theme" },
   { "sainnhe/sonokai" },
   { "mofiqul/dracula.nvim" },
-  { "LazyVim/LazyVim", opts = { colorscheme = "github_dark_default" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "onedark_vivid" } },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      codelens = {
+        enabled = true,
+      },
+
+      servers = {
+        gleam = {
+          mason = false,
+        },
+      },
+    },
+  },
   { "gleam-lang/gleam.vim" },
   { "Jezda1337/nvim-html-css" },
   { "LhKipp/nvim-nu" },
@@ -317,4 +333,5 @@ return {
     "realprogrammersusevim/md-to-html.nvim",
     cmd = { "MarkdownToHTML", "NewMarkdownToHTML" },
   },
+  -- { "letieu/btw.nvim", opts = { text = "I use Neovim (BTW)." } },
 }
