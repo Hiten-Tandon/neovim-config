@@ -283,6 +283,7 @@ return {
       require("render-markdown").setup({})
     end,
   },
+  { "catppuccin/nvim", name = "catppuccin", lazy = false, priority = 1000 },
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
   { "olimorris/onedarkpro.nvim", priority = 1000, name = "onedarkpro" },
   { "navarasu/onedark.nvim", priority = 1000, opts = { style = "warmer" } },
@@ -291,7 +292,7 @@ return {
   { "projekt0n/github-nvim-theme" },
   { "sainnhe/sonokai" },
   { "mofiqul/dracula.nvim" },
-  { "LazyVim/LazyVim", opts = { colorscheme = "onedark_vivid" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "github_dark_default" } },
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -333,4 +334,7 @@ return {
     cmd = { "MarkdownToHTML", "NewMarkdownToHTML" },
   },
   -- { "letieu/btw.nvim", opts = { text = "I use Neovim (BTW)." } },
+  {
+    "Exafunction/codeium.nvim",
+  },
 }
