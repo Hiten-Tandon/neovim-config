@@ -34,10 +34,15 @@ return {
     -- change some options
     opts = {
       defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
+        -- layout_strategy = "vertical",
+        layout_config = { prompt_position = "top", width = 0.9 },
         sorting_strategy = "ascending",
-        winblend = 0,
+        winblend = 2,
+      },
+      pickers = {
+        find_files = {
+          theme = "dropdown",
+        },
       },
     },
   },
@@ -336,5 +341,15 @@ return {
   -- { "letieu/btw.nvim", opts = { text = "I use Neovim (BTW)." } },
   {
     "Exafunction/codeium.nvim",
+  },
+  {
+    "LukasPietzschmann/telescope-tabs",
+    config = function()
+      require("telescope").load_extension("telescope-tabs")
+      require("telescope-tabs").setup({
+        -- Your custom config :^)
+      })
+    end,
+    dependencies = { "nvim-telescope/telescope.nvim" },
   },
 }
