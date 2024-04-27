@@ -32,19 +32,7 @@ return {
       },
     },
     -- change some options
-    opts = {
-      defaults = {
-        -- layout_strategy = "vertical",
-        layout_config = { prompt_position = "top", width = 0.9 },
-        sorting_strategy = "ascending",
-        winblend = 2,
-      },
-      pickers = {
-        find_files = {
-          theme = "dropdown",
-        },
-      },
-    },
+    opts = {},
   },
 
   -- add telescope-fzf-native
@@ -294,10 +282,30 @@ return {
   { "navarasu/onedark.nvim", priority = 1000, opts = { style = "warmer" } },
   { "eldritch-theme/eldritch.nvim", priority = 1000, opts = {} },
   { "EdenEast/nightfox.nvim" },
-  { "projekt0n/github-nvim-theme" },
+  {
+    "projekt0n/github-nvim-theme",
+    config = function()
+      require("github-theme").setup({ options = { transparent = true } })
+    end,
+  },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cyberdream").setup({
+        -- Recommended - see "Configuring" below for more config options
+        transparent = true,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = true,
+        terminal_colors = true,
+      })
+    end,
+  },
   { "sainnhe/sonokai" },
   { "mofiqul/dracula.nvim" },
-  { "LazyVim/LazyVim", opts = { colorscheme = "github_dark_default" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "cyberdream" } },
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -338,7 +346,6 @@ return {
     "realprogrammersusevim/md-to-html.nvim",
     cmd = { "MarkdownToHTML", "NewMarkdownToHTML" },
   },
-  -- { "letieu/btw.nvim", opts = { text = "I use Neovim (BTW)." } },
   {
     "Exafunction/codeium.nvim",
   },
@@ -351,5 +358,12 @@ return {
       })
     end,
     dependencies = { "nvim-telescope/telescope.nvim" },
+  },
+  {
+    "mistricky/codesnap.nvim",
+    build = "make",
+    opts = {
+      watermark = "Hiten Tandon",
+    },
   },
 }
