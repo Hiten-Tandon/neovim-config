@@ -32,7 +32,13 @@ return {
       },
     },
     -- change some options
-    opts = {},
+    opts = {
+      defaults = {
+        layout_config = {
+          prompt_position = "top",
+        },
+      },
+    },
   },
 
   -- add telescope-fzf-native
