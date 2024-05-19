@@ -40,25 +40,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.vscode" },
     -- import/override with your plugins
-    {
-      "williamboman/mason-lspconfig.nvim",
-      opts = {
-        ensure_installed = {
-          "rust_analyzer",
-          "clangd",
-          "ocaml-lsp",
-          "elixir-ls",
-          "zls",
-          "ruff",
-          "ruff-lsp",
-          "basedpyright",
-          "jdtls",
-          "nil",
-        },
-
-        auto_install = true,
-      },
-    },
+    { "williamboman/mason-lspconfig.nvim" },
     { import = "plugins" },
   },
   defaults = {

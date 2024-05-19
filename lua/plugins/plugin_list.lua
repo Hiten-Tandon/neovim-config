@@ -323,6 +323,11 @@ return {
         gleam = {
           mason = false,
         },
+        ruff = {
+          mason = false,
+          cmd = { "ruff", "server", "--preview" },
+        },
+        ruff_lsp = { mason = false },
       },
     },
   },
