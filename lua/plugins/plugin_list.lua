@@ -62,6 +62,7 @@ return {
         pyright = {
           settings = {},
         },
+        hls = { mason = false },
       },
     },
   },
@@ -265,15 +266,7 @@ return {
       },
     },
   },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
-  },
+  { "OXY2DEV/markview.nvim", lazy = false },
   {
     "MeanderingProgrammer/markdown.nvim",
     name = "render-markdown",
@@ -359,6 +352,9 @@ return {
   },
   {
     "Exafunction/codeium.nvim",
+    opts = {
+      enable_chat = true,
+    },
   },
   {
     "LukasPietzschmann/telescope-tabs",
@@ -375,6 +371,33 @@ return {
     build = "make",
     opts = {
       watermark = "Hiten Tandon",
+    },
+  },
+  {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    opts = {
+      bin_path = "/home/hitentandon/Public/bin",
+    },
+  }, -- lazy.nvim:
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvimtools/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<Leader>M",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
+      },
     },
   },
 }
