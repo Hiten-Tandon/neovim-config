@@ -1,6 +1,5 @@
 return {
   { "folke/trouble.nvim" },
-  { "jalvesaq/Nvim-R" },
   -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
@@ -52,8 +51,10 @@ return {
       end,
     },
   },
+  { "R-nvim/R.nvim", opts = { auto_start = "always", objbr_auto_start = true } },
 
   -- add pyright to lspconfig
+  { "folke/noice.nvim", enabled = true, commit = "d9328ef903168b6f52385a751eb384ae7e906c6f" },
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -62,7 +63,13 @@ return {
         pyright = {
           settings = {},
         },
+        lua_ls = { mason = false },
+        -- rust_analyzer = { mason = false },
         hls = { mason = false },
+        r_language_server = { mason = false },
+        ocamllsp = { mason = false },
+        ruff = { mason = false, cmd = { "/run/current-system/sw/bin/ruff_python_formatter" } },
+        ruff_lsp = { mason = false, cmd = "~/pyenv/bin/ruff-lsp" },
       },
     },
   },
@@ -267,14 +274,22 @@ return {
     },
   },
   { "OXY2DEV/markview.nvim", lazy = false },
-  {
-    "MeanderingProgrammer/markdown.nvim",
-    name = "render-markdown",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "Konfekt/vim-latexencode" },
-    config = function()
-      require("render-markdown").setup({})
-    end,
-  },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --   ft = { "markdown" },
+  --   build = function()
+  --     vim.fn["mkdp#util#install"]()
+  --   end,
+  -- },
+  -- {
+  --   "MeanderingProgrammer/markdown.nvim",
+  --   name = "render-markdown",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter", "Konfekt/vim-latexencode" },
+  --   config = function()
+  --     require("render-markdown").setup({})
+  --   end,
+  -- },
   { "catppuccin/nvim", name = "catppuccin", lazy = false, priority = 1000 },
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
   { "olimorris/onedarkpro.nvim", priority = 1000, name = "onedarkpro" },
@@ -340,21 +355,16 @@ return {
       },
     },
     opts = {
-      toc = false,
       preview_cmd = function()
         return "brave"
       end,
+      fonts = { "JetBrains Mono NF" },
+      pandoc_user_args = { "-F", "mermaid-filter" },
     },
   },
   {
     "realprogrammersusevim/md-to-html.nvim",
     cmd = { "MarkdownToHTML", "NewMarkdownToHTML" },
-  },
-  {
-    "Exafunction/codeium.nvim",
-    opts = {
-      enable_chat = true,
-    },
   },
   {
     "LukasPietzschmann/telescope-tabs",
@@ -373,31 +383,16 @@ return {
       watermark = "Hiten Tandon",
     },
   },
-  {
-    "Exafunction/codeium.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    opts = {
-      bin_path = "/home/hitentandon/Public/bin",
-    },
-  }, -- lazy.nvim:
-  {
-    "smoka7/multicursors.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "nvimtools/hydra.nvim",
-    },
-    opts = {},
-    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-    keys = {
-      {
-        mode = { "v", "n" },
-        "<Leader>M",
-        "<cmd>MCstart<cr>",
-        desc = "Create a selection for selected text or word under the cursor",
-      },
-    },
-  },
+  { "jannis-baum/vivify.vim" },
+  { "previm/previm" },
+  -- {
+  --   "Exafunction/codeium.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   opts = {
+  --     bin_path = "/run/current-system/sw/bin/",
+  --   },
+  -- }, -- lazy.nvim:
 }

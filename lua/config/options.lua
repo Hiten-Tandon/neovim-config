@@ -4,3 +4,4 @@
 
 vim.g.R_external_term = 1
 vim.o.scrolloff = 999
+vim.g.previm_open_cmd = "brave --embed"
