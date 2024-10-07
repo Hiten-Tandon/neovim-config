@@ -33,6 +33,16 @@ vim.api.nvim_set_keymap(
     .. "<cmd>CompilerRedo<cr>",
   { noremap = true, silent = true }
 )
+-- Keyboard users
+vim.keymap.set("n", "<C-t>", function()
+  require("menu").open("default")
+end, {})
 
+-- mouse users + nvimtree users!
+vim.keymap.set("n", "<RightMouse>", function()
+  vim.cmd.exec('"normal! \\<rightmouse>"')
+
+  require("menu").open("nvimtree")
+end, {})
 -- Toggle compiler results
 vim.api.nvim_set_keymap("n", "<S-F7>", "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })

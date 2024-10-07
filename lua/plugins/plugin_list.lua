@@ -64,12 +64,13 @@ return {
           settings = {},
         },
         lua_ls = { mason = false },
-        -- rust_analyzer = { mason = false },
         hls = { mason = false },
         r_language_server = { mason = false },
         ocamllsp = { mason = false },
         ruff = { mason = false, cmd = { "/run/current-system/sw/bin/ruff_python_formatter" } },
         ruff_lsp = { mason = false, cmd = "~/pyenv/bin/ruff-lsp" },
+        neocmake = { mason = false },
+        cmake = { mason = false },
       },
     },
   },
@@ -273,7 +274,17 @@ return {
       },
     },
   },
-  { "OXY2DEV/markview.nvim", lazy = false },
+  {
+    "OXY2DEV/markview.nvim",
+    config = function()
+      local presets = require("markview.presets")
+
+      require("markview").setup({
+        checkboxes = presets.checkboxes.nerd,
+        headings = presets.headings.simple,
+      })
+    end,
+  },
   -- {
   --   "iamcco/markdown-preview.nvim",
   --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -319,7 +330,7 @@ return {
   },
   { "sainnhe/sonokai" },
   { "mofiqul/dracula.nvim" },
-  { "LazyVim/LazyVim", opts = { colorscheme = "cyberdream" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "monokai-pro-spectrum" } },
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -336,6 +347,8 @@ return {
           cmd = { "ruff", "server", "--preview" },
         },
         ruff_lsp = { mason = false },
+        jdtls = { mason = false },
+        java_language_server = { mason = false },
       },
     },
   },
@@ -379,12 +392,44 @@ return {
   {
     "mistricky/codesnap.nvim",
     build = "make",
+    dependencies = { "loctvl842/monokai-pro.nvim" },
     opts = {
+      -- bg_theme = "monokai-pro-spectrum",
       watermark = "Hiten Tandon",
     },
   },
   { "jannis-baum/vivify.vim" },
   { "previm/previm" },
+  -- add this to the file where you setup your other plugins:
+  {
+    "monkoose/neocodeium",
+    event = "VeryLazy",
+    config = function()
+      local neocodeium = require("neocodeium")
+      neocodeium.setup()
+      vim.keymap.set("i", "<A-f>", neocodeium.accept)
+      vim.keymap.set("i", "<A-w>", neocodeium.accept_word)
+      vim.keymap.set("i", "<A-a>", neocodeium.accept_line)
+      vim.keymap.set("i", "<A-e>", neocodeium.cycle_or_complete)
+      vim.keymap.set("i", "<A-c>", neocodeium.clear)
+    end,
+  },
+  {
+    {
+      "ngtuonghy/live-server-nvim",
+      event = "VeryLazy",
+      build = ":LiveServerInstall",
+      config = function()
+        require("live-server-nvim").setup({})
+      end,
+    },
+  },
+  { "nvchad/volt", lazy = true },
+  { "nvchad/menu", lazy = true },
+  {
+    "loctvl842/monokai-pro.nvim",
+    opts = { transparent_background = false, terminal_colors = true, dvicons = true, inc_search = "background" },
+  },
   -- {
   --   "Exafunction/codeium.nvim",
   --   dependencies = {
