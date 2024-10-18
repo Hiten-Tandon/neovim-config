@@ -38,3 +38,6 @@ require("lazy").setup({
     },
   },
 })
+
+
+require 'lspconfig'.denols.setup {}
