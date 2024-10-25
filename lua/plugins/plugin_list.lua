@@ -18,9 +18,4 @@ return {
       watermark_font_family = "JetBrains Mono Nerd Font",
     },
   },
-  {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {}
-  },
 }
