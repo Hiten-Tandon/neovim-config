@@ -8,7 +8,6 @@ return {
     version = "*", -- or branch = "dev", to use the latest commit
   },
   { "brenoprata10/nvim-highlight-colors", opts = {} },
-  -- { "folke/flash.nvim",                   opts = {} },
   {
     "mistricky/codesnap.nvim",
     build = "make build_generator",
