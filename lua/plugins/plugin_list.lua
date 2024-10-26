@@ -1,6 +1,6 @@
 return {
   { "williamboman/mason-lspconfig.nvim", enabled = false },
-  { "williamboman/mason.nvim", enabled = false },
+  { "williamboman/mason.nvim",           enabled = false },
   { "OXY2DEV/markview.nvim" },
   {
     "NStefan002/screenkey.nvim",
@@ -8,6 +8,7 @@ return {
     version = "*", -- or branch = "dev", to use the latest commit
   },
   { "brenoprata10/nvim-highlight-colors", opts = {} },
+  -- { "folke/flash.nvim",                   opts = {} },
   {
     "mistricky/codesnap.nvim",
     build = "make build_generator",
