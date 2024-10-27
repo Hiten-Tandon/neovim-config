@@ -7,6 +7,7 @@ return {
     lazy = false,
     version = "*", -- or branch = "dev", to use the latest commit
   },
+  { "sigmaSd/deno-nvim",                  opts = {} },
   { "brenoprata10/nvim-highlight-colors", opts = {} },
   {
     "mistricky/codesnap.nvim",
