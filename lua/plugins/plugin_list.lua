@@ -6,6 +6,7 @@ return {
     lazy = false,
     version = "*", -- or branch = "dev", to use the latest commit
   },
+  { "LhKipp/nvim-nu", opts = {} },
   { "sigmaSd/deno-nvim", opts = {} },
   { "brenoprata10/nvim-highlight-colors", opts = {} },
   {
@@ -19,4 +20,6 @@ return {
       watermark_font_family = "JetBrains Mono Nerd Font",
     },
   },
+  { "cdmill/focus.nvim", opts = {} },
+  { "meznaric/key-analyzer.nvim", opts = {} },
 }

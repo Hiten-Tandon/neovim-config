@@ -39,5 +39,6 @@ require("lazy").setup({
   },
 })
 
+vim.cmd([[Screenkey]])
 
-require 'lspconfig'.denols.setup {}
+require("lspconfig").denols.setup({})
