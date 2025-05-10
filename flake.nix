@@ -3,10 +3,30 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     flake-utils.url = "github:numtide/flake-utils";
+    screen-key = {
+      url = "github:NStefan002/screenkey.nvim";
+      flake = false;
+    };
+    rose-pine = {
+      url = "github:rose-pine/neovim";
+      flake = false;
+    };
+    noice = {
+      url = "github:folke/noice.nvim";
+      flake = false;
+    };
+    nui = {
+      url = "github:MunifTanjim/nui.nvim";
+      flake = false;
+    };
+    which-key-nvim = {
+      url = "github:folke/which-key.nvim";
+      flake = false;
+    };
   };
 
   outputs =
-    {
+    inputs@{
       nixpkgs,
       neovim-nightly,
       flake-utils,
@@ -21,13 +41,27 @@
       };
       let
         screen-key = vimUtils.buildVimPlugin {
-          name = "screen-key-nvim";
-          src = fetchFromGitHub {
-            owner = "NStefan002";
-            repo = "screenkey.nvim";
-            rev = "fb71120b49b075bc7e75b0756c1b0faa4fc4066d";
-            sha256 = "q0hMAtwP4RkmCfFGyEBvw+E/clnC+oRE8FB9TDgZCzo=";
-          };
+          name = "screen-key";
+          src = inputs.screen-key;
+        };
+        rose-pine = vimUtils.buildVimPlugin {
+          name = "rose-pine";
+          src = inputs.rose-pine;
+        };
+        nui = vimUtils.buildVimPlugin {
+          name = "nui";
+          src = inputs.nui;
+        };
+        noice = vimUtils.buildVimPlugin {
+          name = "noice";
+          src = inputs.noice;
+          dependencies = [ nui ];
+          nvimRequireCheck = "noice";
+        };
+        which-key-nvim = vimUtils.buildVimPlugin {
+          name = "which-key";
+          src = inputs.which-key-nvim;
+          nvimSkipModules = [ "which-key.docs" ];
         };
       in
       {
@@ -43,12 +77,13 @@
           plugins = with vimPlugins; [
             rose-pine
             which-key-nvim
+            cord-nvim
             screen-key
             codesnap-nvim
             snacks-nvim
             lazy-nvim
             nvim-web-devicons
-            noice-nvim
+            noice
             lazygit-nvim
             nvim-treesitter
             nvim-treesitter-textsubjects
@@ -62,8 +97,9 @@
             windsurf-nvim
             mini-icons
             gitsigns-nvim
-	    mini-diff
+            mini-diff
             vim-nix
+            vim-addon-nix
           ];
         };
         formatter = nixfmt-rfc-style;
