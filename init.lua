@@ -40,3 +40,11 @@ require("nvim-treesitter.configs").setup({
 	autotag = { enable = true },
 })
 require("lualine").setup({})
+require("gitsigns").setup({})
+vim.lsp.enable("nil")
+vim.lsp.config("nil", {
+	cmd = { "nil" },
+	filetypes = { "nix" },
+	root_markers = { "flake.nix", ".git" },
+})
+vim.lsp.inlay_hint.enable(true)

@@ -17,6 +17,7 @@
       with import nixpkgs {
         inherit system;
         overlays = [ neovim-nightly.overlays.default ];
+        config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "codeium" ];
       };
       let
         screen-key = vimUtils.buildVimPlugin {
@@ -50,9 +51,19 @@
             noice-nvim
             lazygit-nvim
             nvim-treesitter
+            nvim-treesitter-textsubjects
+            nvim-treesitter-textobjects
+            nvim-treesitter-sexp
+            nvim-treesitter-refactor
+            nvim-treesitter-pyfold
             nvim-treesitter-parsers.nix
             nvim-lspconfig
             lualine-nvim
+            windsurf-nvim
+            mini-icons
+            gitsigns-nvim
+	    mini-diff
+            vim-nix
           ];
         };
         formatter = nixfmt-rfc-style;
