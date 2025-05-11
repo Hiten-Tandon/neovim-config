@@ -1,5 +1,13 @@
 {
   inputs = {
+    lazy = {
+      url = "github:folke/lazy.nvim";
+      flake = false;
+    };
+    snacks = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
+    };
     codesnap-nvim = {
       url = "github:mistricky/codesnap.nvim";
       flake = false;
@@ -36,7 +44,7 @@
     inputs@{ nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (
       system:
-      with import nixpkgs { inherit system;};
+      with import nixpkgs { inherit system; };
       let
         basePlugins = builtins.mapAttrs (_: v: vimUtils.buildVimPlugin v) (
           builtins.mapAttrs (name: src: { inherit name src; }) (
@@ -49,6 +57,43 @@
           )
         );
         plugins = basePlugins // {
+          lazy = basePlugins.lazy.overrideAttrs {
+            nvimSkipModules = [
+              "lazy.build"
+              "lazy.manage.runner"
+              "lazy.manage.task.init"
+              "lazy.manage.checker"
+              "lazy.manage.init"
+              "lazy.view.commands"
+            ];
+          };
+          snacks = basePlugins.snacks.overrideAttrs {
+            nvimSkipModules = [
+              "snacks.dashboard"
+              "snacks.debug"
+              "snacks.dim"
+              "snacks.git"
+              "snacks.image.convert"
+              "snacks.image.image"
+              "snacks.image.init"
+              "snacks.image.placement"
+              "snacks.indent"
+              "snacks.input"
+              "snacks.lazygit"
+              "snacks.notifier"
+              "snacks.picker.actions"
+              "snacks.picker.config.highlights"
+              "snacks.picker.core.list"
+              "snacks.scratch"
+              "snacks.scroll"
+              "snacks.terminal"
+              "snacks.win"
+              "snacks.words"
+              "snacks.zen"
+              "trouble.sources.profiler"
+              "snacks.picker.util.db"
+            ];
+          };
           noice = basePlugins.noice.overrideAttrs {
             dependencies = [ basePlugins.nui ];
             nvimRequireCheck = "noice";

@@ -209,6 +209,22 @@
         "type": "github"
       }
     },
+    "lazy": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740511197,
+        "narHash": "sha256-nQ8PR9DTdzg6Z2rViuVD6Pswc2VvDQwS3uMNgyDh5ls=",
+        "owner": "folke",
+        "repo": "lazy.nvim",
+        "rev": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "lazy.nvim",
+        "type": "github"
+      }
+    },
     "neovim-nightly": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -334,11 +350,13 @@
         "codesnap-nvim": "codesnap-nvim",
         "cord-nvim": "cord-nvim",
         "flake-utils": "flake-utils_2",
+        "lazy": "lazy",
         "nixpkgs": "nixpkgs_3",
         "noice": "noice",
         "nui": "nui",
         "rose-pine": "rose-pine",
         "screen-key": "screen-key",
+        "snacks": "snacks",
         "which-key-nvim": "which-key-nvim"
       },
       "locked": {
@@ -388,6 +406,22 @@
       "original": {
         "owner": "NStefan002",
         "repo": "screenkey.nvim",
+        "type": "github"
+      }
+    },
+    "snacks": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740868622,
+        "narHash": "sha256-Gw0Bp2YeoESiBLs3NPnqke3xwEjuiQDDU1CPofrhtig=",
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "rev": "bc0630e43be5699bb94dadc302c0d21615421d93",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "snacks.nvim",
         "type": "github"
       }
     },

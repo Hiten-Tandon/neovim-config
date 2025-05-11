@@ -33,8 +33,6 @@
           plugins =
             (builtins.attrValues plugins.outputs.packages.${system})
             ++ (with vimPlugins; [
-              # cord-nvim
-              snacks-nvim
               lazy-nvim
               nvim-web-devicons
               lazygit-nvim
