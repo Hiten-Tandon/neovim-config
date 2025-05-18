@@ -33,9 +33,6 @@
           plugins =
             (builtins.attrValues plugins.outputs.packages.${system})
             ++ (with vimPlugins; [
-              lazy-nvim
-              nvim-web-devicons
-              lazygit-nvim
               nvim-treesitter
               nvim-treesitter-textsubjects
               nvim-treesitter-textobjects
@@ -43,14 +40,7 @@
               nvim-treesitter-refactor
               nvim-treesitter-pyfold
               nvim-treesitter-parsers.nix
-              nvim-lspconfig
-              lualine-nvim
               windsurf-nvim
-              mini-icons
-              gitsigns-nvim
-              mini-diff
-              vim-nix
-              vim-addon-nix
             ]);
         };
         formatter = nixfmt-tree;

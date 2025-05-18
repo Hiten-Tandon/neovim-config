@@ -1,5 +1,37 @@
 {
   inputs = {
+    mini-icons = {
+      url = "github:echasnovski/mini.icons";
+      flake = false;
+    };
+    gitsigns-nvim = {
+      url = "github:lewis6991/gitsigns.nvim";
+      flake = false;
+    };
+    mini-diff = {
+      url = "github:echasnovski/mini.diff";
+      flake = false;
+    };
+    vim-nix = {
+      url = "github:LnL7/vim-nix";
+      flake = false;
+    };
+    lualine = {
+      url = "github:nvim-lualine/lualine.nvim";
+      flake = false;
+    };
+    lspconfig = {
+      url = "github:neovim/nvim-lspconfig";
+      flake = false;
+    };
+    lazygit-nvim = {
+      url = "github:kdheepak/lazygit.nvim";
+      flake = false;
+    };
+    nvim-web-devicons = {
+      url = "github:nvim-tree/nvim-web-devicons";
+      flake = false;
+    };
     lazy = {
       url = "github:folke/lazy.nvim";
       flake = false;
@@ -68,6 +100,7 @@
             ];
           };
           snacks = basePlugins.snacks.overrideAttrs {
+            buildInputs = basePlugins.snacks.buildInputs ++ [ ghostscript fd ];
             nvimSkipModules = [
               "snacks.dashboard"
               "snacks.debug"
