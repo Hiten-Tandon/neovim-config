@@ -83,7 +83,7 @@
           ]
         );
         plugins = basePlugins // {
-                    snacks = basePlugins.snacks.overrideAttrs {
+          snacks = basePlugins.snacks.overrideAttrs {
             nvimSkipModules = [
               "snacks.dashboard"
               "snacks.debug"
