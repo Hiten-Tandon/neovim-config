@@ -26,11 +26,11 @@
             name = "neovim";
             paths = [
               fd
-              lua
               neovim
               tree-sitter
               imagemagick
               ghostscript
+              lua.withPackages(p: with p; [lua-lsp])
             ];
             meta.mainProgram = "nvim";
           };
@@ -54,9 +54,7 @@
                   nvim-treesitter-refactor
                   nvim-treesitter-pyfold
                   nvim-treesitter-parsers.nix
-                  nvim-treesitter-parsers.latex
-                  nvim-treesitter-parsers.bash
-                  nvim-treesitter-parsers.regex
+                  nvim-treesitter-parsers.lua
                   windsurf-nvim
                 ]);
             }
