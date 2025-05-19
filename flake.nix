@@ -26,6 +26,7 @@
           rust = {
             lsp = rust-analyzer;
             formatter = rustfmt;
+            tree-sitter = vimPlugins.nvim-treesitter-parsers.rust;
             programs = [ cargo ];
             plugins = [ vimPlugins.rustaceanvim ];
           };
@@ -75,6 +76,7 @@
                     windsurf-nvim
                   ]
                   ++ languages.rust.plugins
+                  ++ [languages.rust.tree-sitter]
                 );
             }
           );
