@@ -32,10 +32,6 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
-    lazy = {
-      url = "github:folke/lazy.nvim";
-      flake = false;
-    };
     snacks = {
       url = "github:folke/snacks.nvim";
       flake = false;
@@ -78,29 +74,16 @@
       system:
       with import nixpkgs { inherit system; };
       let
-        basePlugins = builtins.mapAttrs (_: v: vimUtils.buildVimPlugin v) (
-          builtins.mapAttrs (name: src: { inherit name src; }) (
-            builtins.removeAttrs inputs [
-              "nixpkgs"
-              "self"
-              "flake-utils"
-              "rust-overlay"
-            ]
-          )
+        basePlugins = builtins.mapAttrs (name: src: vimUtils.buildVimPlugin { inherit name src; }) (
+          builtins.removeAttrs inputs [
+            "nixpkgs"
+            "self"
+            "flake-utils"
+            "rust-overlay"
+          ]
         );
         plugins = basePlugins // {
-          lazy = basePlugins.lazy.overrideAttrs {
-            nvimSkipModules = [
-              "lazy.build"
-              "lazy.manage.runner"
-              "lazy.manage.task.init"
-              "lazy.manage.checker"
-              "lazy.manage.init"
-              "lazy.view.commands"
-            ];
-          };
-          snacks = basePlugins.snacks.overrideAttrs {
-            buildInputs = basePlugins.snacks.buildInputs ++ [ ghostscript fd ];
+                    snacks = basePlugins.snacks.overrideAttrs {
             nvimSkipModules = [
               "snacks.dashboard"
               "snacks.debug"

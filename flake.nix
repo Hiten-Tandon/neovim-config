@@ -21,27 +21,46 @@
         overlays = [ neovim-nightly.overlays.default ];
         config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "codeium" ];
       }; {
-        packages.default = wrapNeovimUnstable neovim-unwrapped {
-          viAlias = true;
-          vimAlias = true;
-          withPython3 = true;
-          withRuby = true;
-          withNodeJs = true;
-          withPerl = true;
-          neovimRcContent = builtins.readFile ./init.vim;
-          luaRcContent = builtins.readFile ./init.lua;
-          plugins =
-            (builtins.attrValues plugins.outputs.packages.${system})
-            ++ (with vimPlugins; [
-              nvim-treesitter
-              nvim-treesitter-textsubjects
-              nvim-treesitter-textobjects
-              nvim-treesitter-sexp
-              nvim-treesitter-refactor
-              nvim-treesitter-pyfold
-              nvim-treesitter-parsers.nix
-              windsurf-nvim
-            ]);
+        packages = rec {
+          default = symlinkJoin {
+            name = "neovim";
+            paths = [
+              fd
+              lua
+              neovim
+              tree-sitter
+              imagemagick
+              ghostscript
+            ];
+            meta.mainProgram = "nvim";
+          };
+          neovim = (
+            wrapNeovimUnstable neovim-unwrapped {
+              viAlias = true;
+              vimAlias = true;
+              withPython3 = true;
+              withRuby = true;
+              withNodeJs = true;
+              withPerl = true;
+              neovimRcContent = builtins.readFile ./init.vim;
+              luaRcContent = builtins.readFile ./init.lua;
+              plugins =
+                (builtins.attrValues plugins.outputs.packages.${system})
+                ++ (with vimPlugins; [
+                  nvim-treesitter
+                  nvim-treesitter-textsubjects
+                  nvim-treesitter-textobjects
+                  nvim-treesitter-sexp
+                  nvim-treesitter-refactor
+                  nvim-treesitter-pyfold
+                  nvim-treesitter-parsers.nix
+                  nvim-treesitter-parsers.latex
+                  nvim-treesitter-parsers.bash
+                  nvim-treesitter-parsers.regex
+                  windsurf-nvim
+                ]);
+            }
+          );
         };
         formatter = nixfmt-tree;
       }

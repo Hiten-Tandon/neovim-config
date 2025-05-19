@@ -19,7 +19,13 @@ require("noice").setup({
 })
 require("snacks").setup({
 	bigfile = { enabled = true },
-	dashboard = { enabled = true },
+	dashboard = {
+		enabled = true,
+		sections = {
+			{ section = "header" },
+			{ section = "keys", gap = 1, padding = 1 },
+		},
+	},
 	explorer = { enabled = true },
 	indent = { enabled = true },
 	input = { enabled = true },
