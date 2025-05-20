@@ -1,5 +1,9 @@
 {
   inputs = {
+    auto-setup-lsp = {
+      url = "github:Massolari/lsp-auto-setup.nvim";
+      flake = false;
+    };
     mini-icons = {
       url = "github:echasnovski/mini.icons";
       flake = false;
@@ -20,7 +24,7 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
-    lspconfig = {
+    nvim-lspconfig = {
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
@@ -79,7 +83,6 @@
             "nixpkgs"
             "self"
             "flake-utils"
-            "rust-overlay"
           ]
         );
         plugins = basePlugins // {

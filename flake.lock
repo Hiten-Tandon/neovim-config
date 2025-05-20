@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "auto-setup-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745343093,
+        "narHash": "sha256-6xfJS3gGOeNQokBwnpgOKbFnSzBYAN+gmAPcRcO20V0=",
+        "owner": "Massolari",
+        "repo": "lsp-auto-setup.nvim",
+        "rev": "c80aa22cdbc1e6c666ab18660cb79fff3e118d37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Massolari",
+        "repo": "lsp-auto-setup.nvim",
+        "type": "github"
+      }
+    },
     "codesnap-nvim": {
       "flake": false,
       "locked": {
@@ -190,11 +206,11 @@
     "gitsigns-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1747412897,
-        "narHash": "sha256-BOvcYUjwhX359V8IJIdm3Ib+DOGXUWl0pFfOi3+01Og=",
+        "lastModified": 1747671176,
+        "narHash": "sha256-kpTQxfXxRfiNSrgKip63kMzPivqFkqx5A0sZsQTFRBY=",
         "owner": "lewis6991",
         "repo": "gitsigns.nvim",
-        "rev": "39e0d1cd44eafed5f30c372e377ab1cb1781ec9f",
+        "rev": "ee0606259ee5d5dd40398be26755048e8965086e",
         "type": "github"
       },
       "original": {
@@ -238,22 +254,6 @@
       "original": {
         "owner": "kdheepak",
         "repo": "lazygit.nvim",
-        "type": "github"
-      }
-    },
-    "lspconfig": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1747234257,
-        "narHash": "sha256-iC1l9KefzVbRKsqEqvxUdokBvWxIQahr8KJ+K1j16Sw=",
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "rev": "ac1dfbe3b60e5e23a2cff90e3bd6a3bc88031a57",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
         "type": "github"
       }
     },
@@ -316,11 +316,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1747649177,
-        "narHash": "sha256-j2cVoE6ptfm7Xt1XBXjx1jklU0IehfMoCZTciOrMVUE=",
+        "lastModified": 1747699547,
+        "narHash": "sha256-hmYehhzkE04WGkqfJ6dTMdIz99LFQzoZ3maQD2GHb5U=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "4563d61d52f7c1fefe874d4567a0f0ee820252c8",
+        "rev": "bf7aeca255059203738909aa24fed3e675a2e749",
         "type": "github"
       },
       "original": {
@@ -332,11 +332,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1747611853,
-        "narHash": "sha256-VgoGh5MQ1/+UGNdNOqfKHqH6a49S9MNi80GD7KprF5E=",
+        "lastModified": 1747676223,
+        "narHash": "sha256-WhwauKZwrMviNpPQs5FjAGS1cehMDEajOCw5W59K0HQ=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "3a35fdc3471e5f8fb6ad57b48abaa4e4db006de3",
+        "rev": "2045e9700c7324cbd3772bc40b3b30b10cf65cc9",
         "type": "github"
       },
       "original": {
@@ -425,6 +425,22 @@
         "type": "github"
       }
     },
+    "nvim-lspconfig": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1747234257,
+        "narHash": "sha256-iC1l9KefzVbRKsqEqvxUdokBvWxIQahr8KJ+K1j16Sw=",
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "rev": "ac1dfbe3b60e5e23a2cff90e3bd6a3bc88031a57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "type": "github"
+      }
+    },
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -443,18 +459,19 @@
     },
     "plugins": {
       "inputs": {
+        "auto-setup-lsp": "auto-setup-lsp",
         "codesnap-nvim": "codesnap-nvim",
         "cord-nvim": "cord-nvim",
         "flake-utils": "flake-utils_2",
         "gitsigns-nvim": "gitsigns-nvim",
         "lazygit-nvim": "lazygit-nvim",
-        "lspconfig": "lspconfig",
         "lualine": "lualine",
         "mini-diff": "mini-diff",
         "mini-icons": "mini-icons",
         "nixpkgs": "nixpkgs_3",
         "noice": "noice",
         "nui": "nui",
+        "nvim-lspconfig": "nvim-lspconfig",
         "nvim-web-devicons": "nvim-web-devicons",
         "rose-pine": "rose-pine",
         "screen-key": "screen-key",
@@ -487,7 +504,7 @@
         "narHash": "sha256-o3uAO/PrNsNIyZrHKy0WCwJNd9C/TAC3QVcxPapFxAE=",
         "owner": "rose-pine",
         "repo": "neovim",
-        "rev": "491a0c77abc7ecb955c27a974091a5968232995f",
+        "rev": "6b9840790cc7acdfadde07f308d34b62dd9cc675",
         "type": "github"
       },
       "original": {

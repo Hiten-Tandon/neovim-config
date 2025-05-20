@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "auto-setup-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745343093,
+        "narHash": "sha256-6xfJS3gGOeNQokBwnpgOKbFnSzBYAN+gmAPcRcO20V0=",
+        "owner": "Massolari",
+        "repo": "lsp-auto-setup.nvim",
+        "rev": "c80aa22cdbc1e6c666ab18660cb79fff3e118d37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Massolari",
+        "repo": "lsp-auto-setup.nvim",
+        "type": "github"
+      }
+    },
     "codesnap-nvim": {
       "flake": false,
       "locked": {
@@ -53,32 +69,16 @@
     "gitsigns-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1747412897,
-        "narHash": "sha256-BOvcYUjwhX359V8IJIdm3Ib+DOGXUWl0pFfOi3+01Og=",
+        "lastModified": 1747671176,
+        "narHash": "sha256-kpTQxfXxRfiNSrgKip63kMzPivqFkqx5A0sZsQTFRBY=",
         "owner": "lewis6991",
         "repo": "gitsigns.nvim",
-        "rev": "39e0d1cd44eafed5f30c372e377ab1cb1781ec9f",
+        "rev": "ee0606259ee5d5dd40398be26755048e8965086e",
         "type": "github"
       },
       "original": {
         "owner": "lewis6991",
         "repo": "gitsigns.nvim",
-        "type": "github"
-      }
-    },
-    "lazy": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740511197,
-        "narHash": "sha256-nQ8PR9DTdzg6Z2rViuVD6Pswc2VvDQwS3uMNgyDh5ls=",
-        "owner": "folke",
-        "repo": "lazy.nvim",
-        "rev": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "lazy.nvim",
         "type": "github"
       }
     },
@@ -228,11 +228,11 @@
     },
     "root": {
       "inputs": {
+        "auto-setup-lsp": "auto-setup-lsp",
         "codesnap-nvim": "codesnap-nvim",
         "cord-nvim": "cord-nvim",
         "flake-utils": "flake-utils",
         "gitsigns-nvim": "gitsigns-nvim",
-        "lazy": "lazy",
         "lazygit-nvim": "lazygit-nvim",
         "lspconfig": "lspconfig",
         "lualine": "lualine",
@@ -256,7 +256,7 @@
         "narHash": "sha256-o3uAO/PrNsNIyZrHKy0WCwJNd9C/TAC3QVcxPapFxAE=",
         "owner": "rose-pine",
         "repo": "neovim",
-        "rev": "491a0c77abc7ecb955c27a974091a5968232995f",
+        "rev": "6b9840790cc7acdfadde07f308d34b62dd9cc675",
         "type": "github"
       },
       "original": {

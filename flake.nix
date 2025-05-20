@@ -27,8 +27,15 @@
             lsp = rust-analyzer;
             formatter = rustfmt;
             tree-sitter = vimPlugins.nvim-treesitter-parsers.rust;
-            programs = [ cargo ];
+            programs = [ cargo rustc ];
             plugins = [ vimPlugins.rustaceanvim ];
+          };
+          typescript = {
+            lsp = typescript-language-server;
+            formatter = prettierd;
+            tree-sitter = vimPlugins.nvim-treesitter-parsers.typescript;
+            programs = [ nodejs_latest typescript live-server ];
+            plugins = [vimPlugins.typescript-tools-nvim vimPlugins.typescript-nvim];
           };
         };
         packages = {
@@ -42,9 +49,14 @@
                 imagemagick
                 ghostscript
                 (lua.withPackages (p: with p; [ lua-lsp ]))
+                stylua
               ]
               ++ languages.rust.programs
               ++ (with languages.rust; [
+                lsp
+                formatter
+              ])
+              ++ (with languages.typescript; [
                 lsp
                 formatter
               ]));
@@ -59,7 +71,9 @@
               withNodeJs = true;
               withPerl = true;
               neovimRcContent = builtins.readFile ./init.vim;
-              luaRcContent = builtins.readFile ./init.lua;
+              luaRcContent = ''vim.opt.rtp:prepend('${plugins.outputs.packages.${system}.nvim-lspconfig}')
+              ${ builtins.readFile ./init.lua}
+              '';
               plugins =
                 (builtins.attrValues plugins.outputs.packages.${system})
                 ++ (
@@ -77,6 +91,8 @@
                   ]
                   ++ languages.rust.plugins
                   ++ [languages.rust.tree-sitter]
+                  ++ languages.typescript.plugins
+                  ++ [languages.typescript.tree-sitter]
                 );
             }
           );
